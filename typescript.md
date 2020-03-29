@@ -14,8 +14,8 @@
 interface Course{
     title:string,
     intro:string,
-    num?:number,
-    [propName:string]:any
+    num?:number, // ? 代表该属性可有可无，非必须
+    [propName:string]:any //表示接口可以有其他的、不确定类型名的类型
 }
 let hybird:Course = {
     title:'hybird',
@@ -26,13 +26,9 @@ let hybird:Course = {
 console.log(hybird);
 ```
 
-> - 控制台输出
+> 控制台输出
 >
 > {"intro": "混合应用开发", "num": 120, "teacher": "liu", "title": "hybird"}
-
-> num?:number  // ? 代表该属性可有可无，非必须
->
-> [propName:string]:any  //表示接口可以有其他的、不确定类型名的类型
 
 - 函数接口
 
@@ -41,6 +37,7 @@ console.log(hybird);
 ```jsx
 interface MyFunc {
     (params1:string,params2:any):boolean
+    //两个参数分别是string类型和any类型,返回值是boolean类型
 }
 let fun:MyFunc = function(pa1:string,pa2:any){
     if(pa1 === pa2){
@@ -53,13 +50,11 @@ console.log(fun("123","123"));
 console.log(fun("123",123));
 ```
 
-> - 控制台输出
+> 控制台输出
 >
 > true
 >
 > false
-
-> (params1:string,params2:any):boolean //两个参数分别是string类型和any类型,返回值是boolean类型
 
 - 类接口
 
@@ -77,7 +72,7 @@ class User implements Person{// implements 类实现接口
 console.log(new User());
 ```
 
-> - 控制台输出
+> 控制台输出
 > 
 >  {"age": 20, "name": "zhangsan", "pwd": "123456"}
 
@@ -134,7 +129,7 @@ you.state = "写作业";
 console.log(you);
 ```
 
-> - 控制台输出
+> 控制台输出
 >
 > {"age": 18, "name": "张三", "pwd": "123456", "state": "上课"}
 >
